@@ -1,9 +1,12 @@
-# DuDoRNet
-This repository contains the PyTorch implementation for the 2020 CVPR paper:</br>
-
-[DuDoRnet: Learning a Dual-Domain Recurrent Network for Fast MRI Reconstruction with Deep T1 Prior](https://arxiv.org/pdf/2001.03799.pdf)</br>
+# DuDoRNet: Learning a Dual-Domain Recurrent Network for Fast MRI Reconstruction with Deep T1 Prior
 
 Bo Zhou, S. Kevin Zhou
+
+IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2020
+
+[[Paper](https://arxiv.org/pdf/2001.03799.pdf)]
+
+This repository contains the PyTorch implementation of DuDoRNet.
 
 ### Citation
 If you use this code for your research, please consider citing:
