@@ -9,7 +9,7 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2020
 This repository contains the PyTorch implementation of DuDoRNet.
 
 ### Citation
-If you use this code for your research, please consider citing:
+If you use this code for your research, please cite:
 
 	@inproceedings{zhou2020dudornet,
 	  title={DuDoRNet: Learning a Dual-Domain Recurrent Network for Fast MRI Reconstruction with Deep T1 Prior},
@@ -91,7 +91,32 @@ Our code has been tested with Python 3.7, Pytorch 0.4.1, CUDA 10.0 on Ubuntu 18.
     │            
     └── ...
 
-Each .mat should contain a W x W complex value kspace matrix with Variable name: 'kspace_py', where W x W is the kspace size.
+Each .mat should contain a W x W complex value matrix with kspace data in it, where W x W is the kspace size. Please note the variable name should be set as 'kspace_py'.
+Then, please add the data directory './Data/' after --data_root in the code or scripts
+
+### To Run Our Code
+- Train the model
+```bash
+python train.py --experiment_name 'train_DuDoRN_R4_pT1' --data_root './Data/' --dataset 'Cartesian' --netG 'DRDN' --n_recurrent 4 --use_prior --protocol_ref 'T1' --protocol_tag 'T2'
+```
+
+- Test the model
+```bash
+python test.py --experiment_name 'test_DuDoRN_R4_pT1' --accelerations 5 --resume './outputs/train_DuDoRN_R4_pT1/checkpoints/model_259.pt' --data_root './Data/' --dataset 'Cartesian' --netG 'DRDN' --n_recurrent 4 --use_prior --protocol_ref 'T1' --protocol_tag 'T2'
+```
+
+where 
+`--experiment_name` provides the experiment name for current train/test and save all results under it \
+`--data_root`  provides the data folder directory with structure illustrated above \
+`--n_recurrent` defines number of recurrent blocks in the DuDoRNet \
+`--protocol_tag` defines target modality to be reconstruct, e.g. T2 or FLAIR \
+`--protocol_ref` defines modality to be used as prior, e.g. T1 \
+`--use_prior` defines whether to use prior as indicated by protocol_ref \
+
+`--accelerations` defines the acceleration factor, e.g. 5 for 5 fold accelerations \
+`--resume` defines which checkpoint for testing and evaluation \
+
+Sample training/test scripts are provided under './scripts/'
 
 
 ### Contact 
