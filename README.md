@@ -99,12 +99,6 @@ Then, please add the data directory './Data/' after --data_root in the code or s
 ```bash
 python train.py --experiment_name 'train_DuDoRN_R4_pT1' --data_root './Data/' --dataset 'Cartesian' --netG 'DRDN' --n_recurrent 4 --use_prior --protocol_ref 'T1' --protocol_tag 'T2'
 ```
-
-- Test the model
-```bash
-python test.py --experiment_name 'test_DuDoRN_R4_pT1' --accelerations 5 --resume './outputs/train_DuDoRN_R4_pT1/checkpoints/model_259.pt' --data_root './Data/' --dataset 'Cartesian' --netG 'DRDN' --n_recurrent 4 --use_prior --protocol_ref 'T1' --protocol_tag 'T2'
-```
-
 where \
 `--experiment_name` provides the experiment name for the current run, and save all the corresponding results under the experiment_name's folder. \
 `--data_root`  provides the data folder directory (with structure illustrated above). \
@@ -112,11 +106,16 @@ where \
 `--protocol_tag` defines target modality to be reconstruct, e.g. T2 or FLAIR. \
 `--protocol_ref` defines modality to be used as prior, e.g. T1. \
 `--use_prior` defines whether to use prior as indicated by protocol_ref. \
+Other hyperparameters can be adjusted in the code as well.
 
+- Test the model
+```bash
+python test.py --experiment_name 'test_DuDoRN_R4_pT1' --accelerations 5 --resume './outputs/train_DuDoRN_R4_pT1/checkpoints/model_259.pt' --data_root './Data/' --dataset 'Cartesian' --netG 'DRDN' --n_recurrent 4 --use_prior --protocol_ref 'T1' --protocol_tag 'T2'
+```
+where \
 `--accelerations` defines the acceleration factor, e.g. 5 for 5 fold accelerations. \
 `--resume` defines which checkpoint for testing and evaluation. \
-
-Other hyperparameters can be adjusted in the code as well.
+The test will output a eval.mat containing model's input, reconstruction prediction, and ground-truth for evaluation.
 
 Sample training/test scripts are provided under './scripts/' and can be directly executed.
 
