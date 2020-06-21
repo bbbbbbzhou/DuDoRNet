@@ -9,7 +9,7 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2020
 This repository contains the PyTorch implementation of DuDoRNet.
 
 ### Citation
-If you use this code for your research, please cite:
+If you use this code for your research or project, please cite:
 
 	@inproceedings{zhou2020dudornet,
 	  title={DuDoRNet: Learning a Dual-Domain Recurrent Network for Fast MRI Reconstruction with Deep T1 Prior},
@@ -105,18 +105,20 @@ python train.py --experiment_name 'train_DuDoRN_R4_pT1' --data_root './Data/' --
 python test.py --experiment_name 'test_DuDoRN_R4_pT1' --accelerations 5 --resume './outputs/train_DuDoRN_R4_pT1/checkpoints/model_259.pt' --data_root './Data/' --dataset 'Cartesian' --netG 'DRDN' --n_recurrent 4 --use_prior --protocol_ref 'T1' --protocol_tag 'T2'
 ```
 
-where 
-`--experiment_name` provides the experiment name for current train/test and save all results under it \
-`--data_root`  provides the data folder directory with structure illustrated above \
-`--n_recurrent` defines number of recurrent blocks in the DuDoRNet \
-`--protocol_tag` defines target modality to be reconstruct, e.g. T2 or FLAIR \
-`--protocol_ref` defines modality to be used as prior, e.g. T1 \
-`--use_prior` defines whether to use prior as indicated by protocol_ref \
+where \
+`--experiment_name` provides the experiment name for the current run, and save all the corresponding results under the experiment_name's folder. \
+`--data_root`  provides the data folder directory (with structure illustrated above). \
+`--n_recurrent` defines number of recurrent blocks in the DuDoRNet. \
+`--protocol_tag` defines target modality to be reconstruct, e.g. T2 or FLAIR. \
+`--protocol_ref` defines modality to be used as prior, e.g. T1. \
+`--use_prior` defines whether to use prior as indicated by protocol_ref. \
 
-`--accelerations` defines the acceleration factor, e.g. 5 for 5 fold accelerations \
-`--resume` defines which checkpoint for testing and evaluation \
+`--accelerations` defines the acceleration factor, e.g. 5 for 5 fold accelerations. \
+`--resume` defines which checkpoint for testing and evaluation. \
 
-Sample training/test scripts are provided under './scripts/'
+Other hyperparameters can be adjusted in the code as well.
+
+Sample training/test scripts are provided under './scripts/' and can be directly executed.
 
 
 ### Contact 
