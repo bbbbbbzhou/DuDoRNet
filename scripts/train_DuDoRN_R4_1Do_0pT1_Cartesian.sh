@@ -1,0 +1,12 @@
+python train.py \
+--experiment_name 'train_DuDoRN_R4_1Do_0pT1_Cartesian' \
+--model_type 'model_recurrent_dual' \
+--data_root '../Data/PROC/' \
+--dataset 'Cartesian' \
+--net_G 'DRDN' \
+--n_recurrent 4 \
+--batch_size 6 \
+--eval_epochs 10 \
+--save_epochs 10 \
+--lr 5e-4 \
+--gpu_ids 3

@@ -37,62 +37,86 @@ Our code has been tested with Python 3.7, Pytorch 0.4.1, CUDA 10.0 on Ubuntu 18.
     Data
     ├── TRAIN                   # contain training .mat files
     │   ├── T1
-    │   │   ├── train_1.mat          
-    │   │   ├── train_2.mat 
-    │   │   ├── ...         
-    │   │   └── train_N.mat 
+    │   │   ├── kspace
+    │   │   │   ├── train_1.mat          
+    │   │   │   ├── train_2.mat 
+    │   │   │   ├── ...         
+    │   │   │   └── train_N.mat 
+    │   │   └── ...
+    │   │   
     │   ├── T2
-    │   │   ├── train_1.mat          
-    │   │   ├── train_2.mat 
-    │   │   ├── ...         
-    │   │   └── train_N.mat 
+    │   │   ├── kspace
+    │   │   │   ├── train_1.mat          
+    │   │   │   ├── train_2.mat 
+    │   │   │   ├── ...         
+    │   │   │   └── train_N.mat 
+    │   │   └── ...
+    │   │   
     │   ├── FLAIR
-    │   │   ├── train_1.mat          
-    │   │   ├── train_2.mat 
-    │   │   ├── ...         
-    │   │   └── train_N.mat
+    │   │   ├── kspace
+    │   │   │   ├── train_1.mat          
+    │   │   │   ├── train_2.mat 
+    │   │   │   ├── ...         
+    │   │   │   └── train_N.mat 
+    │   │   └── ...
     │   └── ...
     │
     ├── VALI                    # contain validation .mat files
     │   ├── T1
-    │   │   ├── vali_1.mat          
-    │   │   ├── vali_2.mat 
-    │   │   ├── ...         
-    │   │   └── vali_M.mat 
+    │   │   ├── kspace
+    │   │   │   ├── vali_1.mat          
+    │   │   │   ├── vali_2.mat 
+    │   │   │   ├── ...         
+    │   │   │   └── vali_M.mat 
+    │   │   └── ...
+    │   │   
     │   ├── T2
-    │   │   ├── vali_1.mat          
-    │   │   ├── vali_2.mat 
-    │   │   ├── ...         
-    │   │   └── vali_M.mat 
+    │   │   ├── kspace
+    │   │   │   ├── vali_1.mat          
+    │   │   │   ├── vali_2.mat 
+    │   │   │   ├── ...         
+    │   │   │   └── vali_M.mat 
+    │   │   └── ...
+    │   │   
     │   ├── FLAIR
-    │   │   ├── vali_1.mat          
-    │   │   ├── vali_2.mat 
-    │   │   ├── ...         
-    │   │   └── vali_M.mat
+    │   │   ├── kspace
+    │   │   │   ├── vali_1.mat          
+    │   │   │   ├── vali_2.mat 
+    │   │   │   ├── ...         
+    │   │   │   └── vali_M.mat 
+    │   │   └── ...
     │   └── ...
     │
     ├── TEST                    # contain test .mat files
     │   ├── T1
-    │   │   ├── test_1.mat          
-    │   │   ├── test_2.mat 
-    │   │   ├── ...         
-    │   │   └── test_K.mat 
+    │   │   ├── kspace
+    │   │   │   ├── test_1.mat          
+    │   │   │   ├── test_2.mat 
+    │   │   │   ├── ...         
+    │   │   │   └── test_K.mat 
+    │   │   └── ...
+    │   │   
     │   ├── T2
-    │   │   ├── test_1.mat          
-    │   │   ├── test_2.mat 
-    │   │   ├── ...         
-    │   │   └── test_K.mat 
+    │   │   ├── kspace
+    │   │   │   ├── test_1.mat          
+    │   │   │   ├── test_2.mat 
+    │   │   │   ├── ...         
+    │   │   │   └── test_K.mat 
+    │   │   └── ...
+    │   │   
     │   ├── FLAIR
-    │   │   ├── test_1.mat          
-    │   │   ├── test_2.mat 
-    │   │   ├── ...         
-    │   │   └── test_K.mat 
-    │   └── ...  
+    │   │   ├── kspace
+    │   │   │   ├── test_1.mat          
+    │   │   │   ├── test_2.mat 
+    │   │   │   ├── ...         
+    │   │   │   └── test_K.mat 
+    │   │   └── ...
+    │   └── ...
     │            
     └── ...
 
 Each .mat should contain a W x W complex value matrix with kspace data in it, where W x W is the kspace size. Please note the variable name should be set as 'kspace_py'.
-Then, please add the data directory './Data/' after --data_root in the code or scripts
+Then, please add the data directory './Data/' after --data_root in the code or scripts.
 
 ### To Run Our Code
 - Train the model
@@ -115,7 +139,7 @@ python test.py --experiment_name 'test_DuDoRN_R4_pT1' --accelerations 5 --resume
 where \
 `--accelerations` defines the acceleration factor, e.g. 5 for 5 fold accelerations. \
 `--resume` defines which checkpoint for testing and evaluation. \
-The test will output a eval.mat containing model's input, reconstruction prediction, and ground-truth for evaluation.
+The test will output an eval.mat containing model's input, reconstruction prediction, and ground-truth for evaluation.
 
 Sample training/test scripts are provided under './scripts/' and can be directly executed.
 
