@@ -35,87 +35,88 @@ Our code has been tested with Python 3.7, Pytorch 0.4.1, CUDA 10.0 on Ubuntu 18.
 ### Dataset Setup
     .
     Data
-    ├── TRAIN                   # contain training .mat files
+    ├── TRAIN                   # contain training files
     │   ├── T1
     │   │   ├── kspace
-    │   │   │   ├── train_1.mat          
-    │   │   │   ├── train_2.mat 
+    │   │   │   ├── train_1.xx          
+    │   │   │   ├── train_2.xx 
     │   │   │   ├── ...         
-    │   │   │   └── train_N.mat 
+    │   │   │   └── train_N.xx 
     │   │   └── ...
     │   │   
     │   ├── T2
     │   │   ├── kspace
-    │   │   │   ├── train_1.mat          
-    │   │   │   ├── train_2.mat 
+    │   │   │   ├── train_1.xx          
+    │   │   │   ├── train_2.xx 
     │   │   │   ├── ...         
-    │   │   │   └── train_N.mat 
+    │   │   │   └── train_N.xx 
     │   │   └── ...
     │   │   
     │   ├── FLAIR
     │   │   ├── kspace
-    │   │   │   ├── train_1.mat          
-    │   │   │   ├── train_2.mat 
+    │   │   │   ├── train_1.xx          
+    │   │   │   ├── train_2.xx 
     │   │   │   ├── ...         
-    │   │   │   └── train_N.mat 
+    │   │   │   └── train_N.xx 
     │   │   └── ...
     │   └── ...
     │
-    ├── VALI                    # contain validation .mat files
+    ├── VALI                    # contain validation files
     │   ├── T1
     │   │   ├── kspace
-    │   │   │   ├── vali_1.mat          
-    │   │   │   ├── vali_2.mat 
+    │   │   │   ├── vali_1.xx          
+    │   │   │   ├── vali_2.xx 
     │   │   │   ├── ...         
-    │   │   │   └── vali_M.mat 
+    │   │   │   └── vali_M.xx 
     │   │   └── ...
     │   │   
     │   ├── T2
     │   │   ├── kspace
-    │   │   │   ├── vali_1.mat          
-    │   │   │   ├── vali_2.mat 
+    │   │   │   ├── vali_1.xx          
+    │   │   │   ├── vali_2.xx 
     │   │   │   ├── ...         
-    │   │   │   └── vali_M.mat 
+    │   │   │   └── vali_M.xx 
     │   │   └── ...
     │   │   
     │   ├── FLAIR
     │   │   ├── kspace
-    │   │   │   ├── vali_1.mat          
-    │   │   │   ├── vali_2.mat 
+    │   │   │   ├── vali_1.xx          
+    │   │   │   ├── vali_2.xx 
     │   │   │   ├── ...         
-    │   │   │   └── vali_M.mat 
+    │   │   │   └── vali_M.xx 
     │   │   └── ...
     │   └── ...
     │
-    ├── TEST                    # contain test .mat files
+    ├── TEST                    # contain test files
     │   ├── T1
     │   │   ├── kspace
-    │   │   │   ├── test_1.mat          
-    │   │   │   ├── test_2.mat 
+    │   │   │   ├── test_1.xx          
+    │   │   │   ├── test_2.xx 
     │   │   │   ├── ...         
-    │   │   │   └── test_K.mat 
+    │   │   │   └── test_K.xx 
     │   │   └── ...
     │   │   
     │   ├── T2
     │   │   ├── kspace
-    │   │   │   ├── test_1.mat          
-    │   │   │   ├── test_2.mat 
+    │   │   │   ├── test_1.xx          
+    │   │   │   ├── test_2.xx 
     │   │   │   ├── ...         
-    │   │   │   └── test_K.mat 
+    │   │   │   └── test_K.xx 
     │   │   └── ...
     │   │   
     │   ├── FLAIR
     │   │   ├── kspace
-    │   │   │   ├── test_1.mat          
-    │   │   │   ├── test_2.mat 
+    │   │   │   ├── test_1.xx          
+    │   │   │   ├── test_2.xx 
     │   │   │   ├── ...         
-    │   │   │   └── test_K.mat 
+    │   │   │   └── test_K.xx 
     │   │   └── ...
     │   └── ...
     │            
     └── ...
 
-Each .mat should contain a W x W complex value matrix with kspace data in it, where W x W is the kspace size. Please note the variable name should be set as 'kspace_py'.
+In our setup, each file end with .mat and should contain a W x W complex value matrix with kspace data in it, where W x W is the kspace size. 
+Please note the variable name should be set as 'kspace_py'.
 Then, please add the data directory './Data/' after --data_root in the code or scripts.
 
 ### To Run Our Code
